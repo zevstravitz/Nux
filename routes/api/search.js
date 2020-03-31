@@ -11,7 +11,7 @@ router.get('/courses/:subject', async (req, res) => {
   try {
     const courses =
       await axios.get(`${urlPrefix}/courses/?key=${KEY}&term=4530&subject=${req.params.subject}`)
-    return res.send(courses);
+    return res.send(courses.data);
   } catch {
     res.status(400).json({ msg: courses });
   }
@@ -19,10 +19,9 @@ router.get('/courses/:subject', async (req, res) => {
 
 router.get('/instructors/:subject', async (req, res) => {
   try {
-    console.log('test')
     const instructors =
       await axios.get(`${urlPrefix}/instructors/?key=${KEY}&subject=${req.params.subject}`)
-    return res.send(instructors);
+    return res.send(instructors.data);
   } catch (e) {
     res.status(400).json({ msg: e });
   }
