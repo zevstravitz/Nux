@@ -2,6 +2,9 @@
   "name": "nux",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "server": "nodemon server.js"
+  },
   "repository": "https://github.com/zevstravitz/Nux.git",
   "author": "Zev Stravitz <zevstravitz@verizon.net>",
   "license": "MIT",
@@ -9,6 +12,7 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

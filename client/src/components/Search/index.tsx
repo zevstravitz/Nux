@@ -12,8 +12,8 @@ const Search: React.FC<SearchProps> = (props) => {
 
   const getResults = async () => {
     try {
-      const instructors  = await axios.get(endpoint);
-      setResults(instructors.data);
+      const searchResults  = await axios.get(endpoint);
+      setResults(searchResults.data);
     } catch {
       console.log('failed fetch of data...')
     }
