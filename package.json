@@ -1,0 +1,17 @@
+{
+  "name": "nux",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zevstravitz/Nux.git",
+  "author": "Zev Stravitz <zevstravitz@verizon.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
