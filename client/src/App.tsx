@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 
-import Search from './components/Search/index';
 import Navbar from './components/Navbar/index';
+import SelectSearch from './components/SelectSearch/index';
 
 function App() {
   return (
     <div>
       <Navbar></Navbar>
-      <Search></Search>
+      <SelectSearch></SelectSearch>
     </div>
   )
 }
