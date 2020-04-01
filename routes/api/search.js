@@ -5,25 +5,40 @@ const axios = require('axios');
 const { KEY } = config;
 const router = Router()
 
-const urlPrefix = 'http://api.asg.northwestern.edu';
+const classPrefix = 'https://www.northwestern.edu/class-descriptions/';
+const instructorPrefix = 'http://api.asg.northwestern.edu';
 
-router.get('/courses/:subject', async (req, res) => {
+
+// Get Terms List
+router.get('/terms', async (req, res) => {
   try {
-    const courses =
-      await axios.get(`${urlPrefix}/courses/?key=${KEY}&term=4530&subject=${req.params.subject}`)
-    return res.send(courses.data);
+    const terms =
+      await axios.get('https://www.northwestern.edu/class-descriptions/index-v2.json')
+    return res.send(terms.data);
   } catch {
     res.status(400).json({ msg: courses });
   }
 });
 
+// Get Course List
+router.get('/courses/:term/:school/:subject', async (req, res) => {
+  try {
+    const courses =
+      await axios.get(`${classPrefix}${term}/${school}/${subject}/index-v2.json`)
+    return res.send(courses.data);
+  } catch {
+    res.status(400).json({ msg: "Courses fetch failed" });
+  }
+});
+
+// Get Instructor List
 router.get('/instructors/:subject', async (req, res) => {
   try {
     const instructors =
-      await axios.get(`${urlPrefix}/instructors/?key=${KEY}&subject=${req.params.subject}`)
+      await axios.get(`${instructorPrefix}/instructors/?key=${KEY}&subject=${req.params.subject}`)
     return res.send(instructors.data);
   } catch (e) {
-    res.status(400).json({ msg: e });
+    res.status(400).json({ msg: "Instructors Fetch Failed" });
   }
 });
 

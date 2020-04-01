@@ -8,13 +8,10 @@ const SelectSearch = () => {
   const options = [
     { value: 'classes', label: '✏️ Classes' },
     { value: 'instructors', label: '👩‍🏫 Instructors' },
-    { value: 'buildings', label: '🏫 Buildings' }
   ]
 
   const handleSearchType = (type: any) => {
     setSearchType(type.value)
-
-
   }
 
   return (
@@ -26,7 +23,6 @@ const SelectSearch = () => {
 
       <Search
         type={searchType}>
-
       </Search>
     </div>
   )
